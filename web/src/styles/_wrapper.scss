@@ -1,0 +1,70 @@
+:root {
+  --colNum: 2;
+  --wrapperH: 100%;
+}
+
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(var(--colNum), auto);
+  height: var(--wrapperH);
+}
+
+.grid-item {
+  grid-column-start: auto;
+  grid-row-start: auto;
+}
+
+.MuiCardHeader-action {
+  align-self: auto;
+}
+
+.vertical-timeline::before {
+  background: #ddd;
+}
+
+.vertical-timeline-element-icon {
+  box-shadow: 0 0 0 4px sandybrown, inset 0 2px 0 rgba(0, 0, 0, 0.08), 0 3px 0 4px rgba(0, 0, 0, 0.05);
+}
+
+.vertical-timeline-element-content {
+  //border: 1px solid sandybrown;
+  border-radius: 0;
+  box-shadow: 0 3px 0 sandybrown;
+ background: #f9f9f9;
+}
+
+.vertical-timeline-element-content::before {
+  border-left-color: sandybrown;
+}
+
+.text-from-editor{
+  h1,h2,h3 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: normal;
+  }
+  h4 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.2em;
+  }
+ p {
+   font-family: 'Roboto', sans-serif;
+   font-size: 1.2em;
+   font-weight: lighter;
+ }
+}
+
+.sticky-bar {
+  position: fixed;
+  margin-top: 50px;
+  margin-left: 230px;
+  width: 100px;
+}
+
+.react-calendar {
+  border-color: white !important;
+  height: 400px;
+}
+
+.react-calendar__tile--active {
+  background: sandybrown !important;
+}

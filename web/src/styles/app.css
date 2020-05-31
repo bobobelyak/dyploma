@@ -1,0 +1,110 @@
+@import "_wrapper.scss";
+@import "_utils.scss";
+@import "_map.scss";
+@import "_route-list.scss";
+@import "_upload-image.scss";
+@import "_create-place.scss";
+.mapboxgl-canvas {
+    left: 0;
+}
+
+html {
+    font-family: 'Roboto', sans-serif;
+}
+
+h1, h2, h3, h4, p {
+    margin: 0;
+}
+
+h1, h3 {
+    color: rgba(64, 64, 64, 0.98);
+}
+
+h1 {
+    font-size: 2em;
+}
+
+h3 {
+    font-size: 1.5em;
+}
+
+h4 {
+    font-size: 1em;
+}
+
+.place {
+    margin-left: 0.2em;
+}
+
+
+.place-street {
+    font-weight: lighter;
+    /*font-style: italic;*/
+    color: #acacac;
+}
+
+hr {
+    border: 0.5px white solid;
+}
+
+.place-description {
+    font-size: 0.9em;
+    margin-top: 0.05em;
+    margin-left: 0.3em;
+}
+
+.full-description {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    height: 100%;
+}
+
+.part-description {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    height: 200px;
+}
+
+.place-read-more {
+    font-size: 1.2em;
+    color: #54828c;
+    cursor: pointer;
+    margin-left: 0.3em;
+    margin-top: 0.05em;
+}
+
+.shadow-bottom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 30px;
+    background: linear-gradient(to top, rgb(255, 255, 255) -20%, rgba(0, 0, 0, 0) 100%)
+}
+
+.set-language {
+    color: #5be391;
+}
+
+.set-language .active {
+    font-weight: bold;
+    color: white;
+    background-color: #5be391;
+    border: 3px solid #5be391;
+    border-radius: 50%;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.logo {
+    font-family: 'Roboto', cursive;
+    color: #5be391;
+}
+
+.category-selected {
+    border-bottom: 2px #5be391 solid;
+}
