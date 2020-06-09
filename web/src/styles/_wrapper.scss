@@ -23,18 +23,18 @@
 }
 
 .vertical-timeline-element-icon {
-  box-shadow: 0 0 0 4px sandybrown, inset 0 2px 0 rgba(0, 0, 0, 0.08), 0 3px 0 4px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 0 0 4px #4b9635, inset 0 2px 0 rgba(0, 0, 0, 0.08), 0 3px 0 4px rgba(0, 0, 0, 0.05);
 }
 
 .vertical-timeline-element-content {
-  //border: 1px solid sandybrown;
+  //border: 1px solid #4b9635;
   border-radius: 0;
-  box-shadow: 0 3px 0 sandybrown;
+  box-shadow: 0 3px 0 #4b9635;
  background: #f9f9f9;
 }
 
 .vertical-timeline-element-content::before {
-  border-left-color: sandybrown;
+  border-left-color: #4b9635;
 }
 
 .text-from-editor{
@@ -66,5 +66,5 @@
 }
 
 .react-calendar__tile--active {
-  background: sandybrown !important;
+  background: #4b9635 !important;
 }

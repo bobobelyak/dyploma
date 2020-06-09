@@ -45,14 +45,14 @@ const GridListComponent = props => {
         <Tooltip key={2} title="Like" placement="top">
           <IconButton style={{padding: '0 5px 5px 5px'}}>
             <Badge classes={{badge: classes.badge}} style={{opacity: place.liked ? 1 : 0.7}} badgeContent={place.likes} color="primary">
-              <FavoriteIcon className={classes.icon} style={{color: place.liked ? 'sandybrown' : 'white'}}/>
+              <FavoriteIcon className={classes.icon} style={{color: place.liked ? '#4b9635' : 'white'}}/>
             </Badge>
           </IconButton>
         </Tooltip>,
         <Tooltip key={3} title="Dislike" placement="top">
           <IconButton style={{padding: '0 5px 5px 5px'}}>
             <Badge classes={{badge: classes.badge}} style={{opacity: place.disliked ? 1 : 0.7}} badgeContent={place.dislikes} color="primary">
-              <ThumbDownIcon className={classes.icon} style={{color: place.disliked ? 'sandybrown' : 'white'}}/>
+              <ThumbDownIcon className={classes.icon} style={{color: place.disliked ? '#4b9635' : 'white'}}/>
             </Badge>
           </IconButton>
         </Tooltip>,
@@ -69,7 +69,7 @@ const GridListComponent = props => {
       <Tooltip key={2} title="Like" placement="top">
         <IconButton style={{paddingTop: 0}}>
           <Badge classes={{badge: classes.badge}} style={{opacity: place.liked ? 1 : 0.7}} badgeContent={place.likes} color="primary">
-            <FavoriteIcon className={classes.icon} style={{color: place.liked ? 'sandybrown' : 'white'}}/>
+            <FavoriteIcon className={classes.icon} style={{color: place.liked ? '#4b9635' : 'white'}}/>
           </Badge>
         </IconButton>
       </Tooltip>,

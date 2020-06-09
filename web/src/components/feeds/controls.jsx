@@ -30,8 +30,8 @@ const Controls = props => {
 
   return (
     <Grid container direction="row" style={{paddingLeft: 16, marginBottom: 5}}>
-      <span className="feed-controls"><FavoriteIcon onClick={allowLike ? () => likeFeed() : null} style={{fontSize: '1em', padding: 3, color: feed.liked && 'sandybrown', cursor: 'pointer'}}/> <span style={{fontSize: '0.8em'}}>{feed.likes}</span></span>
-      <span className="feed-controls"><ThumbDownIcon onClick={allowDislike ? () => dislikeFeed() : null} style={{fontSize: '1em', padding: 3, color: feed.disliked && 'sandybrown', cursor: 'pointer'}}/> <span style={{fontSize: '0.8em'}}>{feed.dislikes}</span></span>
+      <span className="feed-controls"><FavoriteIcon onClick={allowLike ? () => likeFeed() : null} style={{fontSize: '1em', padding: 3, color: feed.liked && '#4b9635', cursor: 'pointer'}}/> <span style={{fontSize: '0.8em'}}>{feed.likes}</span></span>
+      <span className="feed-controls"><ThumbDownIcon onClick={allowDislike ? () => dislikeFeed() : null} style={{fontSize: '1em', padding: 3, color: feed.disliked && '#4b9635', cursor: 'pointer'}}/> <span style={{fontSize: '0.8em'}}>{feed.dislikes}</span></span>
       <span className="feed-controls"><CommentIcon style={{fontSize: '1em', padding: 3, cursor: 'pointer'}}/> <span style={{fontSize: '0.8em'}}>{feed.comments}</span></span>
     </Grid>
   );

@@ -55,7 +55,7 @@ const PreviewModal = props => {
       {/* <DialogTitle id="max-width-dialog-title">Optional sizes</DialogTitle> */}
       <DialogContent>
         <Grid container spacing={16} style={{minHeight: '90vh'}}>
-          <Grid item md={4}>
+          <Grid item md={6}>
             <Card className={classes.card}>
               <CardMedia
                 // OnClick={turnMoreInfo}
@@ -81,14 +81,8 @@ const PreviewModal = props => {
               </CardContent>
             </Card>
           </Grid>
-          <Grid item md={4}>
+          <Grid item md={6}>
             {/* <Reviews/> */}
-          </Grid>
-          <Grid item md={4}>
-                You can set my maximum width and whether to adapt or not.
-                You can set my maximum width and whether to adapt or not.
-                You can set my maximum width and whether to adapt or not.
-                You can set my maximum width and whether to adapt or not.
           </Grid>
         </Grid>
       </DialogContent>
@@ -97,7 +91,7 @@ const PreviewModal = props => {
           <Button onClick={onClose}>
             Close
           </Button>
-          <Button onClick={handleSubmit} variant="contained" color="primary" style={{backgroundColor: 'sandybrown', width: 100, height: 40}}>
+          <Button onClick={handleSubmit} variant="contained" color="primary" style={{backgroundColor: '#4b9635', width: 100, height: 40}}>
             Create
           </Button>
         </Grid>

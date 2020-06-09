@@ -13,9 +13,15 @@ import GridListTileBar from '@material-ui/core/GridListTileBar';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import ThumbDownIcon from '@material-ui/icons/ThumbDown';
 import CommentIcon from '@material-ui/icons/ModeComment';
+import Card from '@material-ui/core/Card';
+import CardActionArea from '@material-ui/core/CardActionArea';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+import CardMedia from '@material-ui/core/CardMedia';
 import AddIcon from '@material-ui/icons/Add';
 import Slide from '@material-ui/core/Slide';
 import Grid from '@material-ui/core/Grid';
+import Button from '@material-ui/core/Button';
 import {Typography} from '@material-ui/core';
 import Tooltip from '@material-ui/core/Tooltip';
 import Badge from '@material-ui/core/Badge';
@@ -25,6 +31,8 @@ import {Navigation} from '../layout/navigation';
 import dumpImg from '../../../public/images/dump.jpeg';
 import {getEvents, getComing, like, dislike} from '../../store/reducers/events';
 import Create from './create';
+import SearchIcon from '@material-ui/icons/Search';
+
 
 const selectedLanguage = localStorage.getItem('language');
 
@@ -35,36 +43,15 @@ const setLanguage = language => {
   }
 };
 
+const topics = ['Онкологія', 'Біохімія', 'Алергія', 'Щитоподібна', 'Covid-19'];
+
 const Transition = props => <Slide direction="left" {...props}/>;
 
 const array = [1, 1, 1, 1];
 
-const actionIcons = (event, classes, like, dislike) => [
-  <Tooltip key={2} title="Like" placement="top">
-    <span style={{padding: '0 5px 5px 5px'}}>
-      <Badge classes={{badge: classes.badge}} style={{opacity: event.liked ? 1 : 0.7, marginBottom: 10}} badgeContent={event.likes} color="primary">
-        <FavoriteIcon onClick={() => like(event)} className={classes.icon} style={{color: event.liked ? 'sandybrown' : 'white'}}/>
-      </Badge>
-    </span>
-  </Tooltip>,
-  <Tooltip key={3} title="Dislike" placement="top">
-    <span style={{padding: '0 5px 5px 5px'}}>
-      <Badge classes={{badge: classes.badge}} style={{opacity: event.disliked ? 1 : 0.7, marginBottom: 10}} badgeContent={event.dislikes} color="primary">
-        <ThumbDownIcon onClick={() => dislike(event)} className={classes.icon} style={{color: event.disliked ? 'sandybrown' : 'white'}}/>
-      </Badge>
-    </span>
-  </Tooltip>,
-  <Tooltip key={4} title="Comments" placement="top">
-    <span style={{padding: '0 5px 5px 5px'}}>
-      <Badge classes={{badge: classes.badge}} style={{color: 'white', opacity: 0.7, marginBottom: 10}} badgeContent={event.comments} color="primary">
-        <CommentIcon className={classes.icon}/>
-      </Badge>
-    </span>
-  </Tooltip>,
-];
 
 const Events = props => {
-  const {history, classes, openCreate, toggleCreate, events = [], allowLike, setAllowLike, allowDislike, setAllowDislike} = props;
+  const {history, classes,search, openCreate, toggleCreate, events = [], allowLike, setAllowLike, allowDislike, setAllowDislike} = props;
 
   const likeEvent = event => {
     const {like} = props;
@@ -78,6 +65,7 @@ const Events = props => {
     dislike({eventId: event._id}, () => setAllowDislike(true));
   };
 
+
   return (
     <Dialog
       fullScreen
@@ -89,7 +77,7 @@ const Events = props => {
         onClose={() => toggleCreate(!openCreate)}
       /> }
       <AppBar style={{boxShadow: 'none', position: 'relative'}}>
-        <Toolbar style={{backgroundColor: 'sandybrown'}}>
+        <Toolbar style={{backgroundColor: '#4b9635'}}>
           <Navigation white/>
           <div style={{flexGrow: 1}}/>
           <img onClick={() => setLanguage('en')} src={EN} width={20} height={20} style={{marginTop: 0}} className={selectedLanguage === 'en' ? 'selected-language' : 'selected-language-inactive selected-language'}/>
@@ -97,34 +85,203 @@ const Events = props => {
           <IconButton onClick={() => toggleCreate(!openCreate)} style={{cursor: 'pointer'}}><AddIcon style={{fontSize: '1.3em', color: 'white'}}/></IconButton>
         </Toolbar>
       </AppBar>
+      <div style={{height: 100}}>
+        <Grid container alignItems="center" justify="space-around" direction="row" style={{height: '100%'}}>
+          <Grid item md={2}/>
+          {
+            search ?
+              <TextField
+                // OnChange={changeInfo('name')}
+                // value={textInput.name}
+                autoFocus
+                style={{width: '60%'}}
+                variant="standard"
+                placeholder="Search"
+                required
+                InputProps={{
+                  classes: {underline: classes.underline, root: classes.inputRoot},
+                }}
+              /> :
+              topics.map(topic => (
+                <Typography key={topic} component="h2" variant="h2" style={{cursor: 'pointer', marginRight: 30, fontSize: '1em', textTransform: 'uppercase', borderBottom: '2px solid #4b9635'}}>
+                  {topic}
+                </Typography>
+              ))
+          }
+          { search ?
+            <CloseIcon style={{cursor: 'pointer'}} onClick={() => toggleSearch(!search)}/> :
+            <SearchIcon style={{cursor: 'pointer'}} onClick={() => toggleSearch(!search)}/>
+          }
+          <Grid item md={2}/>
+        </Grid>
+      </div>
       <Grid container style={{marginTop: 10}} spacing={8}>
         <Grid item md={1}/>
-        <Grid item md={10}>
-          <Typography variant="h2" style={{fontSize: '2em', textTransform: 'uppercase', fontWeight: 'lighter', padding: 10}}> Upcoming events</Typography>
-          <GridList cellHeight={100} cols={12} spacing={1} className={classes.gridList}>
-            {events.map((event, i) => (
-              <GridListTile key={i} cols={3} rows={4} style={{padding: 5}}>
-                <div style={{position: 'absolute', paddingTop: 5, zIndex: 100}}>
-                  <div style={{backgroundColor: 'sandybrown', color: 'white', padding: 3, fontWeight: 'lighter'}}>
-                    {moment(event.eventDate).isSame(moment(), 'd') ? 'Today' : moment(event.eventDate).format('DD MMMM')}
-                  </div>
-                </div>
-                <img src={event.imgUrl} style={{cursor: 'pointer'}} onClick={() => console.log('go to')} alt={i}/>
-                <GridListTileBar
-                  title={event.header}
-                  // Subtitle={`${place.street}, ${place.buildingNumber}`}
-                  titlePosition="bottom"
-                  actionPosition="right"
-                  // OnClick={goToMoreInfo(place)}
-                  classes={{
-                    root: classes.titleBar,
-                    title: classes.title,
-                    subtitle: classes.subtitle,
-                  }}
-                  actionIcon={actionIcons(event, classes, likeEvent, dislikeEvent)}
-                />
-              </GridListTile>
-            ))}
+        <Grid item md={11}>
+          <GridList cellHeight={500} cols={3.5} spacing={50} className={classes.gridList}>
+          <Card className={classes.rot}>
+  <CardActionArea>
+    <CardMedia
+      component="img"
+      alt="Contemplative Reptile"
+      height="280"
+      image={require('./image1.jpeg')}
+      title="Contemplative Reptile"
+    />
+    <CardContent>
+      <Typography gutterBottom variant="h5" component="h2">
+        РОЗГОРНУТИЙ АНАЛІЗ КРОВІ
+      </Typography>
+      <Typography variant="body2" color="textSecondary" component="p">
+        Розгорнутий (загальний, клінічний) аналіз крові (ЗАК). Автоматизований аналіз з формулою (16 показників) + Швидкість осідання еритроцитів (ШОЕ, РОЕ) + Лейкоцитарна формула (ручний підрахунок)
+      </Typography>
+    </CardContent>
+  </CardActionArea>
+  <CardActions>
+    <Button size="small" color="primary">
+      Тривалість може варіюватися
+    </Button>
+    <Button size="small" color="primary">
+      110 грн
+    </Button>
+  </CardActions>
+</Card>
+<Card className={classes.rot}>
+<CardActionArea>
+<CardMedia
+component="img"
+alt="Contemplative Reptile"
+height="280"
+image={require('./image2.jpeg')}
+title="Contemplative Reptile"
+/>
+<CardContent>
+<Typography gutterBottom variant="h5" component="h2">
+Комплекс "Печінкові проби"(9 показників)
+</Typography>
+<Typography variant="body2" color="textSecondary" component="p">
+Лабораторні тести направлені на визначення ключових параметрів функції печінки: АЛТ, АСТ, гама-ГТП, ЛФ, білірубін фракційно, загальний білок, тимолова проба</Typography>
+</CardContent>
+</CardActionArea>
+<CardActions>
+<Button size="small" color="primary">
+Тривалість може варіюватися
+</Button>
+<Button size="small" color="primary">
+270 грн
+</Button>
+</CardActions>
+</Card>
+<Card className={classes.rot}>
+<CardActionArea>
+<CardMedia
+component="img"
+alt="Contemplative Reptile"
+height="280"
+image={require('./image3.jpg')}
+title="Contemplative Reptile"
+/>
+<CardContent>
+<Typography gutterBottom variant="h5" component="h2">
+Антитіла IgM та IgG до вірусу кору
+</Typography>
+<Typography variant="body2" color="textSecondary" component="p">
+IgM та IgG до вірусу кору є специфічними антитілами, які виявляються в крові починаючи з 3-ої доби від появи висипки (IgM) та через 2-2.5 тижні після моменту інфікування (IgG)
+</Typography>
+</CardContent>
+</CardActionArea>
+<CardActions>
+<Button size="small" color="primary">
+Тривалість може варіюватися
+</Button>
+<Button size="small" color="primary">
+100 грн  за кожен вид антитіл
+</Button>
+</CardActions>
+</Card>
+<Card className={classes.rot}>
+<CardActionArea>
+<CardMedia
+component="img"
+alt="Contemplative Reptile"
+height="280"
+image={require('./image4.jpg')}
+title="Contemplative Reptile"
+/>
+<CardContent>
+<Typography gutterBottom variant="h5" component="h2">
+РОЗГОРНУТИЙ АНАЛІЗ КРОВІ
+</Typography>
+<Typography variant="body2" color="textSecondary" component="p">
+Розгорнутий (загальний, клінічний) аналіз крові (ЗАК). Автоматизований аналіз з формулою (16 показників) + Швидкість осідання еритроцитів (ШОЕ, РОЕ) + Лейкоцитарна формула (ручний підрахунок)
+</Typography>
+</CardContent>
+</CardActionArea>
+<CardActions>
+<Button size="small" color="primary">
+Тривалість може варіюватися
+</Button>
+<Button size="small" color="primary">
+110 грн
+</Button>
+</CardActions>
+</Card>
+<Card className={classes.rot}>
+<CardActionArea>
+<CardMedia
+component="img"
+alt="Contemplative Reptile"
+height="280"
+image={require('./image5.jpg')}
+title="Contemplative Reptile"
+/>
+<CardContent>
+<Typography gutterBottom variant="h5" component="h2">
+РОЗГОРНУТИЙ АНАЛІЗ КРОВІ
+</Typography>
+<Typography variant="body2" color="textSecondary" component="p">
+Розгорнутий (загальний, клінічний) аналіз крові (ЗАК). Автоматизований аналіз з формулою (16 показників) + Швидкість осідання еритроцитів (ШОЕ, РОЕ) + Лейкоцитарна формула (ручний підрахунок)
+</Typography>
+</CardContent>
+</CardActionArea>
+<CardActions>
+<Button size="small" color="primary">
+Тривалість може варіюватися
+</Button>
+<Button size="small" color="primary">
+110 грн
+</Button>
+</CardActions>
+</Card>
+<Card className={classes.rot}>
+<CardActionArea>
+<CardMedia
+component="img"
+alt="Contemplative Reptile"
+height="280"
+image={require('./image6.jpg')}
+title="Contemplative Reptile"
+/>
+<CardContent>
+<Typography gutterBottom variant="h5" component="h2">
+РОЗГОРНУТИЙ АНАЛІЗ КРОВІ
+</Typography>
+<Typography variant="body2" color="textSecondary" component="p">
+Розгорнутий (загальний, клінічний) аналіз крові (ЗАК). Автоматизований аналіз з формулою (16 показників) + Швидкість осідання еритроцитів (ШОЕ, РОЕ) + Лейкоцитарна формула (ручний підрахунок)
+</Typography>
+</CardContent>
+</CardActionArea>
+<CardActions>
+<Button size="small" color="primary">
+Тривалість може варіюватися
+</Button>
+<Button size="small" color="primary">
+110 грн
+</Button>
+</CardActions>
+</Card>
+
+
           </GridList>
         </Grid>
         <Grid item md={1}/>
@@ -132,16 +289,9 @@ const Events = props => {
       <Grid container style={{marginTop: 10}} spacing={8}>
         <Grid item md={1}/>
         <Grid item md={10}>
-          <Typography variant="h2" style={{fontSize: '2em', textTransform: 'uppercase', fontWeight: 'lighter', padding: 10}}> Coming soon</Typography>
           <GridList cellHeight={100} cols={12} spacing={1} className={classes.gridList}>
             {array.map((tile, i) => (
               <GridListTile key={i} cols={3} rows={4} style={{padding: 5}}>
-                <div style={{position: 'absolute', paddingTop: 5, zIndex: 100}}>
-                  <div style={{backgroundColor: 'sandybrown', color: 'white', padding: 3, fontWeight: 'lighter'}}>
-                      May 21
-                  </div>
-                </div>
-                <img src={dumpImg} alt={i}/>
               </GridListTile>
             ))}
           </GridList>
@@ -153,6 +303,9 @@ const Events = props => {
 };
 
 const styles = theme => ({
+  rot: {
+    maxWidth: 500,
+  },
   root: {
     display: 'flex',
     flexWrap: 'wrap',
@@ -202,6 +355,7 @@ export default compose(
   withState('openCreate', 'toggleCreate', false),
   withState('allowLike', 'setAllowLike', true),
   withState('allowDislike', 'setAllowDislike', true),
+  withState('search', 'toggleSearch', false),
   lifecycle({
     componentDidMount() {
       this.props.getEvents();

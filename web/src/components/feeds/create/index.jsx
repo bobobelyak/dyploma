@@ -55,7 +55,7 @@ const CreateFeed = props => {
     >
       <form onSubmit={createFeed} encType="multipart/form-data">
         <AppBar style={{boxShadow: 'none', position: 'relative'}}>
-          <Toolbar style={{backgroundColor: 'sandybrown'}}>
+          <Toolbar style={{backgroundColor: '#4b9635'}}>
             <span onClick={onClose} style={{display: 'flex', alignItems: 'center', cursor: 'pointer'}}>
               <CloseIcon style={{fontSize: '2em'}}/> Back
             </span>
@@ -122,7 +122,7 @@ const CreateFeed = props => {
           <Grid item md={1}/>
         </Grid>
         <div style={{display: 'flex', justifyContent: 'center', padding: 20}}>
-          <Button type="submit" variant="contained" color="primary" style={{backgroundColor: 'sandybrown'}}>Create</Button>
+          <Button type="submit" variant="contained" color="primary" style={{backgroundColor: '#4b9635'}}>Create</Button>
         </div>
       </form>
     </Dialog>

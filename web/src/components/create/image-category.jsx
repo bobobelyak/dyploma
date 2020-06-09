@@ -39,11 +39,11 @@ const ImageCategory = props => {
           categories.map(item => (
             <Paper key={item.name} className={selectedCategory._id === item._id ? 'category-active' : 'category'} onClick={item.subCategories.length > 0 && (() => selectCategory(item))}>
               <div className="category-name">
-                <Typography style={{fontSize: '0.7em', color: 'sandybrown', display: 'block'}} variant="h2">{iconCategories[item.name].label}</Typography>
+                <Typography style={{fontSize: '0.7em', color: '#4b9635', display: 'block'}} variant="h2">{iconCategories[item.name] && iconCategories[item.name].label}</Typography>
               </div>
-              <div className="category-icon">
-                {iconCategories[item.name].icon}
-              </div>
+              {<div className="category-icon">
+                   {iconCategories[item.name] && iconCategories[item.name].icon}
+                 </div>}
             </Paper>
           ))
         }
@@ -56,11 +56,11 @@ const ImageCategory = props => {
             selectedCategory.subCategories.map(item => (
               <Paper key={item.name} className={selectedSubCategory.name === item.name ? 'sub-category-active' : 'sub-category'} onClick={() => selectSubCategory(item)}>
                 <div className="sub-category-name">
-                  <Typography style={{fontSize: '0.7em', color: 'sandybrown', display: 'block'}} variant="h2">{iconSubCategories[item.name].label}</Typography>
+                  <Typography style={{fontSize: '0.7em', color: '#4b9635', display: 'block'}} variant="h2">{iconSubCategories[item.name] && iconSubCategories[item.name].label}</Typography>
                 </div>
-                <div className="sub-category-icon">
-                  {iconSubCategories[item.name].icon}
-                </div>
+              {<div className="sub-category-icon">
+                   {iconSubCategories[item.name] && iconSubCategories[item.name].icon}
+                 </div>}
               </Paper>
             ))
           }

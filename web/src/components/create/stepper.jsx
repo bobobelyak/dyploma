@@ -19,10 +19,10 @@ const muiTheme = createMuiTheme({
     MuiStepIcon: {
       root: {
         '&$active': {
-          color: 'sandybrown',
+          color: '#4b9635',
         },
         '&$completed': {
-          color: 'sandybrown',
+          color: '#4b9635',
         },
       },
     },
@@ -106,7 +106,7 @@ const StepperComponent = props => {
       <Grid container justify="center" alignContent="center">
         {step > -1 && step !== 3 &&
           <Button
-            style={{border: '1px solid sandybrown'}}
+            style={{border: '1px solid #4b9635'}}
             onClick={stepBack}
           >
             Back
@@ -115,7 +115,7 @@ const StepperComponent = props => {
         <div style={{width: 5}}/>
         {step !== data.length - 1 && step !== 3 &&
           <Button
-            style={{backgroundColor: checkStep(step, formData) && 'sandybrown'}}
+            style={{backgroundColor: checkStep(step, formData) && '#4b9635'}}
             disabled={!checkStep(step, formData)}
             variant="contained"
             color="primary"

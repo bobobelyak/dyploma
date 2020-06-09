@@ -35,8 +35,8 @@ const ImageUpload = props => {
         <div className="avatar-edit">
           {
             imageUrl ?
-              <label className="label-delete" onClick={removeImage}><RemoveIcon style={{color: 'sandybrown'}}/></label> :
-              <label className="label-add" htmlFor="imageUpload"><AddIcon style={{color: 'sandybrown'}}/></label>
+              <label className="label-delete" onClick={removeImage}><RemoveIcon style={{color: '#4b9635'}}/></label> :
+              <label className="label-add" htmlFor="imageUpload"><AddIcon style={{color: '#4b9635'}}/></label>
           }
         </div>
         {

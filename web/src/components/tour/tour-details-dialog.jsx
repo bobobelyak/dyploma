@@ -42,10 +42,10 @@ const TourDetails = props => {
             <Typography variant="h2">{tour.name}</Typography>
           </span>
           {tour.type === 2 && <span style={{justifyContent: 'flex-end', flex: 1, display: 'flex', alignItems: 'center', marginRight: 20}}>
-            <span style={{color: 'sandybrown', fontSize: '2em'}}>{tour.price} <span style={{fontWeight: 'lighter'}}>UAH</span>
+            <span style={{color: '#4b9635', fontSize: '2em'}}>{tour.price} <span style={{fontWeight: 'lighter'}}>UAH</span>
               <p style={{display: 'flex', justifyContent: 'center'}}>
                 <a target="_blank" href={tour.contactUrl}>
-                  <Button size="small" variant="contained" color="primary" style={{background: 'sandybrown', boxShadow: 'none', width: 80}}>
+                  <Button size="small" variant="contained" color="primary" style={{background: '#4b9635', boxShadow: 'none', width: 80}}>
                   order
                   </Button>
                 </a>
@@ -53,7 +53,7 @@ const TourDetails = props => {
             </span>
           </span> }
           {tour.type === 1 && <span style={{justifyContent: 'flex-end', flex: 1, display: 'flex', alignItems: 'center', marginRight: 20}}>
-            <span style={{color: 'sandybrown'}}> {tour.contactPhone}
+            <span style={{color: '#4b9635'}}> {tour.contactPhone}
               <p>
                 <a target="_blank" href={tour.contactUrl}>Contact</a>
               </p>
@@ -63,20 +63,20 @@ const TourDetails = props => {
         <div style={{height: 100, padding: 30}}><Typography style={{height: 100}} variant="body1">{tour.tourDescription}</Typography></div>
         <div style={{width: '100%', display: 'flex', alignItems: 'center'}}>
           <span style={{justifyContent: 'flex-start', flex: 1, display: 'flex', alignItems: 'center', marginLeft: 50}}>
-            <LocationIcon style={{width: 60, height: 60, color: 'sandybrown'}}/>
-            <span style={{color: 'sandybrown', fontSize: '2em'}}>{tour.routes.length}
+            <LocationIcon style={{width: 60, height: 60, color: '#4b9635'}}/>
+            <span style={{color: '#4b9635', fontSize: '2em'}}>{tour.routes.length}
               <p style={{textTransform: 'uppercase', fontWeight: 'lighter', fontSize: '0.5em'}}>sights</p>
             </span>
           </span>
           <span style={{justifyContent: 'center', flex: 1, display: 'flex', alignItems: 'center'}}>
-            <AlarmIcon style={{width: 60, height: 60, color: 'sandybrown'}}/>
-            <span style={{color: 'sandybrown', fontSize: '2em'}}>{Math.floor(tour.routes.reduce((a, b) => a + (b.duration || 0), 0))}
+            <AlarmIcon style={{width: 60, height: 60, color: '#4b9635'}}/>
+            <span style={{color: '#4b9635', fontSize: '2em'}}>{Math.floor(tour.routes.reduce((a, b) => a + (b.duration || 0), 0))}
               <p style={{textTransform: 'uppercase', fontWeight: 'lighter', fontSize: '0.5em'}}>minutes</p>
             </span>
           </span>
           <span style={{justifyContent: 'flex-end', flex: 1, display: 'flex', alignItems: 'center', marginRight: 50}}>
-            <DistanceIcon style={{width: 60, height: 60, color: 'sandybrown'}}/>
-            <span style={{color: 'sandybrown', fontSize: '2em'}}>{Math.floor(tour.routes.reduce((a, b) => a + (b.distance || 0), 0))}
+            <DistanceIcon style={{width: 60, height: 60, color: '#4b9635'}}/>
+            <span style={{color: '#4b9635', fontSize: '2em'}}>{Math.floor(tour.routes.reduce((a, b) => a + (b.distance || 0), 0))}
               <p style={{textTransform: 'uppercase', fontWeight: 'lighter', fontSize: '0.5em'}}>meters</p>
             </span>
           </span>
@@ -86,7 +86,7 @@ const TourDetails = props => {
             tour.routes.map((place, i) => (
               <VerticalTimelineElement
                 className="vertical-timeline-element--work"
-                iconStyle={{background: 'rgb(33, 150, 243)', color: 'sandybrown'}}
+                iconStyle={{background: 'rgb(33, 150, 243)', color: '#4b9635'}}
                 date={i + 1}
                 icon={<Avatar style={{height: '100%', width: '100%'}} src={place.imgUrl}/>}
               >

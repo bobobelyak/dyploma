@@ -85,7 +85,7 @@ const CreateDialog = props => {
                 onChange={changeInfo('type')}
                 value={textInput.type}
                 style={{width: '49%', display: 'inline-block'}}
-                input={<Input style={{borderBottomColor: 'sandybrown'}} classes={{
+                input={<Input style={{borderBottomColor: '#4b9635'}} classes={{
                   underline: classes.underline, root: classes.inputRoot,
                 }}/>}
               >
@@ -177,7 +177,7 @@ const CreateDialog = props => {
           <Button onClick={onClose} color="primary" style={{color: 'grey'}}>
           Close
           </Button>
-          <Button type="submit" color="primary" variant="contained" style={{backgroundColor: 'sandybrown'}}>
+          <Button type="submit" color="primary" variant="contained" style={{backgroundColor: '#4b9635'}}>
           Save
           </Button>
         </DialogActions>
@@ -188,16 +188,16 @@ const CreateDialog = props => {
 const styles = theme => ({
   underline: {
     '&:after': {
-      borderBottomColor: 'sandybrown',
+      borderBottomColor: '#4b9635',
     },
     '&:hover': {
-      borderBottomColor: 'sandybrown',
+      borderBottomColor: '#4b9635',
     },
     '&:before': {
-      borderBottomColor: 'sandybrown',
+      borderBottomColor: '#4b9635',
     },
     '&:hover:before': {
-      borderBottomColor: 'sandybrown',
+      borderBottomColor: '#4b9635',
     },
   },
   inputRoot: {

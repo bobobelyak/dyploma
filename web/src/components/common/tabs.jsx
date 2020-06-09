@@ -14,7 +14,7 @@ const styles = theme => ({
 
   },
   tabsIndicator: {
-    backgroundColor: 'sandybrown',
+    backgroundColor: '#4b9635',
   },
   tabRoot: {
     textTransform: 'initial',
@@ -32,15 +32,15 @@ const styles = theme => ({
       '"Segoe UI Symbol"',
     ].join(','),
     '&:hover': {
-      color: 'sandybrown',
+      color: '#4b9635',
       opacity: 1,
     },
     '&$tabSelected': {
-      color: 'sandybrown',
+      color: '#4b9635',
       fontWeight: theme.typography.fontWeightMedium,
     },
     '&:focus': {
-      color: 'sandybrown',
+      color: '#4b9635',
     },
   },
   tabSelected: {},

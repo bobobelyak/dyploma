@@ -34,14 +34,14 @@ const Sight = props => {
       <Tooltip key={2} title="Like" placement="top">
         <IconButton style={{padding: '0 5px 5px 5px'}}>
           <Badge classes={{badge: classes.badge}} style={{opacity: place.liked ? 1 : 0.7}} badgeContent={place.likes} color="primary">
-            <FavoriteIcon className={classes.icon} style={{color: place.liked ? 'sandybrown' : 'white'}}/>
+            <FavoriteIcon className={classes.icon} style={{color: place.liked ? '#4b9635' : 'white'}}/>
           </Badge>
         </IconButton>
       </Tooltip>,
       <Tooltip key={3} title="Dislike" placement="top">
         <IconButton style={{padding: '0 5px 5px 5px'}}>
           <Badge classes={{badge: classes.badge}} style={{opacity: place.disliked ? 1 : 0.7}} badgeContent={place.dislikes} color="primary">
-            <ThumbDownIcon className={classes.icon} style={{color: place.disliked ? 'sandybrown' : 'white'}}/>
+            <ThumbDownIcon className={classes.icon} style={{color: place.disliked ? '#4b9635' : 'white'}}/>
           </Badge>
         </IconButton>
       </Tooltip>,
@@ -151,8 +151,8 @@ const RPlace = props => {
         </CardContent>
       </div>
       <Grid container direction="row" style={{paddingLeft: 16, marginBottom: 5}}>
-        <span className="feed-controls"><FavoriteIcon style={{fontSize: '1em', padding: 3, color: place.liked && 'sandybrown', cursor: 'pointer'}}/> <span style={{fontSize: '0.8em'}}>{place.likes}</span></span>
-        <span className="feed-controls"><ThumbDownIcon style={{fontSize: '1em', padding: 3, color: place.disliked && 'sandybrown', cursor: 'pointer'}}/> <span style={{fontSize: '0.8em'}}>{place.dislikes}</span></span>
+        <span className="feed-controls"><FavoriteIcon style={{fontSize: '1em', padding: 3, color: place.liked && '#4b9635', cursor: 'pointer'}}/> <span style={{fontSize: '0.8em'}}>{place.likes}</span></span>
+        <span className="feed-controls"><ThumbDownIcon style={{fontSize: '1em', padding: 3, color: place.disliked && '#4b9635', cursor: 'pointer'}}/> <span style={{fontSize: '0.8em'}}>{place.dislikes}</span></span>
         <span className="feed-controls"><CommentIcon style={{fontSize: '1em', padding: 3, cursor: 'pointer'}}/> <span style={{fontSize: '0.8em'}}>{place.comments}</span></span>
       </Grid>
     </Card>

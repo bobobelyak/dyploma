@@ -6,7 +6,7 @@ const CheckboxField = props => {
 
   return (
     <Checkbox
-      style={{color: 'sandybrown'}}
+      style={{color: '#4b9635'}}
       checked={input.value}
       onChange={input.onChange}
     />

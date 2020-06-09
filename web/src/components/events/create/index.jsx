@@ -57,7 +57,7 @@ const CreateFeed = props => {
     >
       <form onSubmit={createFeed} encType="multipart/form-data">
         <AppBar style={{boxShadow: 'none', position: 'relative'}}>
-          <Toolbar style={{backgroundColor: 'sandybrown'}}>
+          <Toolbar style={{backgroundColor: '#4b9635'}}>
             <span onClick={onClose} style={{display: 'flex', alignItems: 'center', cursor: 'pointer'}}>
               <CloseIcon style={{fontSize: '2em'}}/> Back
             </span>
@@ -65,18 +65,12 @@ const CreateFeed = props => {
         </AppBar>
         <Grid container>
           <Grid item md={3}/>
-          <Grid item md={3} style={{marginTop: 10}}>
+          <Grid item md={5} style={{marginTop: 10}}>
             <Field
               name="image"
               component={UploadImageField}
               imageUrl={formData && formData.image.imageUrl ? formData.image.imageUrl : ''}
               style={{width: '100%', height: 400}}
-            />
-          </Grid>
-          <Grid item md={3} style={{marginTop: 10}}>
-            <Field
-              name="eventDate"
-              component={Calendar}
             />
           </Grid>
           <Grid item md={3}/>
@@ -85,9 +79,27 @@ const CreateFeed = props => {
           <Grid item md={1}/>
           <Grid item md={5}>
             <CardContent>
+            <Field
+              required
+              label={<div><img src={UA} width={13} height={13}/>  Заголовок</div>}
+              name="uaHeader"
+              component={TextField}
+            />
               <Field
                 required
-                label={<div><img src={UA} width={13} height={13}/>  Заголовок</div>}
+                label={<div><img src={UA} width={13} height={13}/>  Тема</div>}
+                name="uaHeader"
+                component={TextField}
+              />
+              <Field
+                required
+                label={<div><img src={UA} width={13} height={13}/>  Тривалість</div>}
+                name="uaHeader"
+                component={TextField}
+              />
+              <Field
+                required
+                label={<div><img src={UA} width={13} height={13}/>  Ціна</div>}
                 name="uaHeader"
                 component={TextField}
               />
@@ -107,9 +119,27 @@ const CreateFeed = props => {
           </Grid>
           <Grid item md={5}>
             <CardContent>
+            <Field
+              required
+              label={<div><img src={EN} width={13} height={13}/>  Header</div>}
+              name="enHeader"
+              component={TextField}
+            />
               <Field
                 required
-                label={<div><img src={EN} width={13} height={13}/>  Header</div>}
+                label={<div><img src={EN} width={13} height={13}/>  Topic</div>}
+                name="enHeader"
+                component={TextField}
+              />
+              <Field
+                required
+                label={<div><img src={EN} width={13} height={13}/>  Duration</div>}
+                name="enHeader"
+                component={TextField}
+              />
+              <Field
+                required
+                label={<div><img src={EN} width={13} height={13}/>  Price</div>}
                 name="enHeader"
                 component={TextField}
               />
@@ -130,7 +160,7 @@ const CreateFeed = props => {
           <Grid item md={1}/>
         </Grid>
         <div style={{display: 'flex', justifyContent: 'center', padding: 20}}>
-          <Button type="submit" variant="contained" color="primary" style={{backgroundColor: 'sandybrown'}}>Create</Button>
+          <Button type="submit" variant="contained" color="primary" style={{backgroundColor: '#4b9635'}}>Create</Button>
         </div>
       </form>
     </Dialog>

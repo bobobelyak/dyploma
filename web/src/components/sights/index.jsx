@@ -18,10 +18,15 @@ import GridList from '../common/grid-list';
 import TextField from '../common/text-field';
 import {Navigation} from '../layout/navigation';
 import {PopularSight, RightPlace} from './popular-sight';
+import logo from './logo.jpg';
+import banner from './banner.png';
+import { makeStyles } from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
+
 
 const selectedLanguage = localStorage.getItem('language');
 
-const topics = ['All', 'Home', 'Health', 'Education', 'Technologies', 'Buisness', 'Politics'];
+
 
 const setLanguage = language => {
   localStorage.setItem('language', language);
@@ -34,10 +39,9 @@ const Transition = props => <Slide direction="left" {...props}/>;
 
 // TODO CREATE LAYOUT FOR APPBAR
 const Sights = props => {
-  const {history, places, search, toggleSearch, classes} = props;
+  const {history, places, classes} = props;
 
   const goCreatePlace = () => history.push('/create-place');
-
   return (
     <Dialog
       fullScreen
@@ -45,7 +49,7 @@ const Sights = props => {
       TransitionComponent={Transition}
     >
       <AppBar style={{boxShadow: 'none', position: 'relative'}}>
-        <Toolbar style={{backgroundColor: 'sandybrown'}}>
+        <Toolbar style={{backgroundColor: '#4b9635'}}>
           <Navigation white/>
           <div style={{flexGrow: 1}}/>
           <img onClick={() => setLanguage('en')} src={EN} width={20} height={20} style={{marginTop: 0}} className={selectedLanguage === 'en' ? 'selected-language' : 'selected-language-inactive selected-language'}/>
@@ -53,80 +57,43 @@ const Sights = props => {
           <IconButton style={{cursor: 'pointer'}}><AddIcon onClick={goCreatePlace} style={{fontSize: '1.3em', color: 'white'}}/></IconButton>
         </Toolbar>
       </AppBar>
-      <div style={{height: 100}}>
-        <Grid container alignItems="center" justify="space-around" direction="row" style={{height: '100%'}}>
-          <Grid item md={2}/>
-          {
-            search ?
-              <TextField
-                // OnChange={changeInfo('name')}
-                // value={textInput.name}
-                autoFocus
-                style={{width: '60%'}}
-                variant="standard"
-                placeholder="Search"
-                required
-                InputProps={{
-                  classes: {underline: classes.underline, root: classes.inputRoot},
-                }}
-              /> :
-              topics.map(topic => (
-                <Typography key={topic} component="h2" variant="h2" style={{cursor: 'pointer', marginRight: 30, fontSize: '1em', textTransform: 'uppercase', borderBottom: '2px solid sandybrown'}}>
-                  {topic}
-                </Typography>
-              ))
-          }
-          { search ?
-            <CloseIcon style={{cursor: 'pointer'}} onClick={() => toggleSearch(!search)}/> :
-            <SearchIcon style={{cursor: 'pointer'}} onClick={() => toggleSearch(!search)}/>
-          }
-          <Grid item md={2}/>
-        </Grid>
-      </div>
-      <Grid container>
-        <Grid item md={1}/>
-        <Grid item md={10} style={{height: 300}}>
-          <Grid container spacing={8}>
-            <Grid item md={6} style={{height: '100%'}}>
-              <PopularSight place={places[0]} height={300}/>
-            </Grid>
-            <Grid item md={3} style={{height: '100%'}}>
-              <PopularSight place={places[1]} height={145}/>
-              <div style={{marginTop: 10}}/>
-              <PopularSight place={places[1]} height={145}/>
-            </Grid>
-            <Grid item md={3} style={{height: '100%'}}>
-              <RightPlace place={places[0]}/>
-            </Grid>
-          </Grid>
-        </Grid>
-        <Grid item md={1}/>
+      <Grid container style={{marginLeft: 100, marginTop: 50}}>
+        <img width="35%" src={logo} alt={logo} />
+          <Typography variant="h2" style={{fontSize: '2em', textTransform: 'uppercase', fontWeight: 'lighter', padding: 10, marginLeft: 50}}> Медична лабораторія<br/>Diavita Med</Typography>
+        <Button  className={classes.root} style={{marginLeft: 100}}>Details</Button>
       </Grid>
-      <Grid container style={{marginTop: 50}}>
-        <Grid item md={2}/>
-        <Grid item md={8}>
-          <GridList data={places} cols={3} height={300} padding/>
-        </Grid>
-        <Grid item md={2}/>
+      <Grid container style={{marginLeft: 100, marginTop: 50}}>
+        <img width="80%" src={banner} alt={banner} />
       </Grid>
+
+
 
     </Dialog>
   );
 };
 
 const styles = theme => ({
+  root: {
+    background: 'linear-gradient(45deg, #20BF55 30%, #01BAEF 90%)',
+    border: 0,
+    borderRadius: 3,
+    boxShadow: '0 3px 5px 2px #05E8BA',
+    color: 'white',
+    height: 48,
+    padding: '0 30px',
+  },
   underline: {
     '&:after': {
-      borderBottomColor: 'sandybrown',
+      borderBottomColor: '#4b9635',
     },
     '&:hover': {
-      borderBottomColor: 'sandybrown',
+      borderBottomColor: '#4b9635',
     },
     '&:before': {
-      borderBottomColor: 'sandybrown',
+      borderBottomColor: '#4b9635',
     },
     '&:hover:before': {
-      borderBottomColor: 'sandybrown',
+      borderBottomColor: '#4b9635',
     },
   },
   inputRoot: {
@@ -152,5 +119,4 @@ const mapStateToProps = state => ({
 export default compose(
   connect(mapStateToProps, {}),
   withStyles(styles),
-  withState('search', 'toggleSearch', false),
 )(Sights);

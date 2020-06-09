@@ -63,7 +63,7 @@ class SingleFeed extends React.Component {
         TransitionComponent={Transition}
       >
         <AppBar style={{boxShadow: 'none', position: 'relative'}}>
-          <Toolbar style={{backgroundColor: 'sandybrown'}}>
+          <Toolbar style={{backgroundColor: '#4b9635'}}>
             <span onClick={this.goBack} style={{display: 'flex', alignItems: 'center', cursor: 'pointer'}}>
               <CloseIcon style={{fontSize: '2em'}}/> Back
             </span>
@@ -72,9 +72,9 @@ class SingleFeed extends React.Component {
         <Grid container>
           <div className="sticky-bar">
             <Grid container justify="center" direction="column" alignItems="center" style={{width: '100%'}}>
-              <FavoriteIcon onClick={allowLike ? () => this.likeFeed() : null} style={{color: feed.liked ? 'sandybrown' : 'lightgray', cursor: 'pointer'}}/>
+              <FavoriteIcon onClick={allowLike ? () => this.likeFeed() : null} style={{color: feed.liked ? '#4b9635' : 'lightgray', cursor: 'pointer'}}/>
               <span style={{fontSize: '0.8em', fontWeight: 'lighter'}}>{feed.likes}</span>
-              <ThumbDownIcon onClick={allowDislike ? () => this.dislikeFeed() : null} style={{marginTop: 10, color: feed.disliked ? 'sandybrown' : 'lightgray', cursor: 'pointer'}}/>
+              <ThumbDownIcon onClick={allowDislike ? () => this.dislikeFeed() : null} style={{marginTop: 10, color: feed.disliked ? '#4b9635' : 'lightgray', cursor: 'pointer'}}/>
               <span style={{fontSize: '0.8em', fontWeight: 'lighter'}}>{feed.dislikes}</span>
               <CommentIcon onClick={this.scrollToMyRef} style={{marginTop: 10, color: 'lightgray', cursor: 'pointer'}}/>
               <span style={{fontSize: '0.8em', fontWeight: 'lighter'}}>{feed.comments.length}</span>
@@ -134,11 +134,11 @@ const styles = theme => ({
   avatar: {
     width: 50,
     height: 50,
-    border: '2px solid sandybrown',
+    border: '2px solid #4b9635',
   },
   title: {
     fontSize: '1em',
-    color: 'sandybrown',
+    color: '#4b9635',
   },
   subtitle: {
     fontSize: '1em',

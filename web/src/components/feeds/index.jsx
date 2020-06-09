@@ -23,7 +23,7 @@ import Create from './create';
 
 const Transition = props => <Slide direction="left" {...props}/>;
 
-const topics = ['All', 'Home', 'Health', 'Education', 'Technologies', 'Buisness', 'Politics'];
+
 
 const selectedLanguage = localStorage.getItem('language');
 
@@ -51,7 +51,7 @@ const Feeds = props => {
         onClose={() => toggleCreate(!openCreate)}
       /> }
       <AppBar style={{boxShadow: 'none', position: 'relative'}}>
-        <Toolbar style={{backgroundColor: 'sandybrown'}}>
+        <Toolbar style={{backgroundColor: '#4b9635'}}>
           <Navigation white/>
           <div style={{flexGrow: 1}}/>
           <img onClick={() => setLanguage('en')} src={EN} width={20} height={20} style={{marginTop: 0}} className={selectedLanguage === 'en' ? 'selected-language' : 'selected-language-inactive selected-language'}/>
@@ -59,20 +59,7 @@ const Feeds = props => {
           <IconButton onClick={() => toggleCreate(!openCreate)} style={{cursor: 'pointer'}}><AddIcon style={{fontSize: '1.3em', color: 'white'}}/></IconButton>
         </Toolbar>
       </AppBar>
-      <div style={{height: 100}}>
-        <Grid container alignItems="center" justify="space-around" direction="row" style={{height: '100%'}}>
-          <Grid item md={2}/>
-          {
-            topics.map(topic => (
-              <Typography key={topic} component="h2" variant="h2" style={{cursor: 'pointer', marginRight: 30, fontSize: '1em', textTransform: 'uppercase', borderBottom: '2px solid sandybrown'}}>
-                {topic}
-              </Typography>
-            ))
-          }
-          <Grid item md={2}/>
-        </Grid>
-      </div>
-      <Grid container style={{height: 400, marginTop: 10}} spacing={8}>
+      <Grid container style={{height: 0, marginTop: 0}} spacing={8}>
         <Grid item md={1}/>
         <Grid item md={4} style={{height: 400}}>
           {topFeeds[0] && <MainFeed feed={topFeeds[0]}/>}
@@ -94,12 +81,6 @@ const Feeds = props => {
         <Grid item md={6}>
           {
             feeds.map(feed => <FeedItem key={feed._id} feed={feed} history={history}/>)
-          }
-        </Grid>
-        <Grid item md={2} style={{height: '100%'}}>
-          <Typography variant="h2" style={{fontSize: '1.1em', textTransform: 'uppercase', marginBottom: 10}}>Best of previous month</Typography>
-          {
-            previousMonthFeeds.map(feed => <BestOfPreviousMonth key={feed._id} feed={feed}/>)
           }
         </Grid>
         <Grid item md={2}/>

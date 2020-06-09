@@ -71,7 +71,7 @@ const Comments = props => {
                         onClick={submitComment}
                         aria-label="Toggle password visibility"
                       >
-                        <SendIcon style={{color: 'sandybrown'}}/>
+                        <SendIcon style={{color: '#4b9635'}}/>
                       </IconButton>
                     </InputAdornment>
                   ),
@@ -129,11 +129,11 @@ const styles = theme => ({
   avatar: {
     width: 50,
     height: 50,
-    border: '2px solid sandybrown',
+    border: '2px solid #4b9635',
   },
   title: {
     fontSize: '1em',
-    color: 'sandybrown',
+    color: '#4b9635',
   },
   subtitle: {
     fontSize: '1em',
@@ -141,10 +141,10 @@ const styles = theme => ({
   },
   underline: {
     '&:after': {
-      borderBottom: 'sandybrown',
+      borderBottom: '#4b9635',
     },
     '&:hover:before': {
-      borderBottomColor: 'sandybrown',
+      borderBottomColor: '#4b9635',
     },
   },
   inputRoot: {

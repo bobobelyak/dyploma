@@ -7,18 +7,18 @@ const muiTheme = createMuiTheme({
     MuiInputLabel: {
       root: {
         '&$focused': {
-          color: 'sandybrown',
+          color: '#4b9635',
         },
       },
     },
     MuiOutlinedInput: {
       root: {
         '&$focused $notchedOutline': {
-          color: 'sandybrown',
-          borderColor: 'sandybrown',
+          color: '#4b9635',
+          borderColor: '#4b9635',
         },
         '&$notchedOutline': {
-          borderColor: 'sandybrown',
+          borderColor: '#4b9635',
         },
       },
     },

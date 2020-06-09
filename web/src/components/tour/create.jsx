@@ -51,7 +51,7 @@ const Create = props => {
                     style={{padding: 1}}
                     onClick={searchPlace}
                   >
-                    <SearchIcon style={{color: 'sandybrown'}}/>
+                    <SearchIcon style={{color: '#4b9635'}}/>
                   </IconButton>
                 </InputAdornment>,
               ]
@@ -71,14 +71,14 @@ const Create = props => {
               )
           ) : (
             <div>
-              <Typography style={{fontSize: '2em', color: 'sandybrown', textTransform: 'uppercase'}} variant="h2"
+              <Typography style={{fontSize: '2em', color: '#4b9635', textTransform: 'uppercase'}} variant="h2"
                 gutterBottom
               >
                       Most popular sights
               </Typography>
               {loadingTop ? <GridListSkeleton data={[1, 2, 3]} cols={3}/> :
               <GridList cols={3} data={topPlaces} showActionIcons={false}/>}
-              <Typography style={{fontSize: '2em', color: 'sandybrown', textTransform: 'uppercase'}} variant="h2"
+              <Typography style={{fontSize: '2em', color: '#4b9635', textTransform: 'uppercase'}} variant="h2"
                 gutterBottom
               >
                       Upcoming events
@@ -107,16 +107,16 @@ const styles = theme => ({
   },
   underline: {
     '&:after': {
-      borderBottomColor: 'sandybrown',
+      borderBottomColor: '#4b9635',
     },
     '&:hover': {
-      borderBottomColor: 'sandybrown',
+      borderBottomColor: '#4b9635',
     },
     '&:before': {
-      borderBottomColor: 'sandybrown',
+      borderBottomColor: '#4b9635',
     },
     '&:hover:before': {
-      borderBottomColor: 'sandybrown',
+      borderBottomColor: '#4b9635',
     },
   },
   inputRoot: {

@@ -19,7 +19,7 @@ const ConfirmationModal = props => {
       aria-labelledby="max-width-dialog-title"
       style={{top: '-30%'}}
     >
-      <DialogTitle><span style={{fontWeight: 'lighter', color: 'sandybrown', textTransform: 'uppercase'}}>Confirm</span></DialogTitle>
+      <DialogTitle><span style={{fontWeight: 'lighter', color: '#4b9635', textTransform: 'uppercase'}}>Confirm</span></DialogTitle>
       <DialogContent style={{display: 'flex', alignItems: 'center', padding: '0 0 0 10px'}}>
         <Lottie
           options={{
@@ -39,7 +39,7 @@ const ConfirmationModal = props => {
         <Button onClick={onClose} style={{fontWeight: 'lighter'}}>
             No
         </Button>
-        <Button onClick={acceptFunction} style={{color: 'sandybrown'}}>
+        <Button onClick={acceptFunction} style={{color: '#4b9635'}}>
             Yes
         </Button>
       </DialogActions>

@@ -51,7 +51,7 @@ const MoreInfo = props => {
       TransitionComponent={Transition}
     >
       <AppBar style={{boxShadow: 'none', position: 'relative'}}>
-        <Toolbar style={{backgroundColor: 'sandybrown'}}>
+        <Toolbar style={{backgroundColor: '#4b9635'}}>
           <span onClick={closeModal} style={{display: 'flex', alignItems: 'center', cursor: 'pointer'}}>
             <CloseIcon style={{fontSize: '2em'}}/> Back
           </span>
@@ -60,14 +60,11 @@ const MoreInfo = props => {
       {loadingSingle ?
         <DialogContent style={{minHeight: '80vh', overflow: 'hidden', marginTop: 30}}>
           <Grid container spacing={16}>
-            <Grid item md={4}>
+            <Grid item md={6}>
               <PlaceCard {...{place}} isMoreInfo/>
             </Grid>
-            <Grid item md={4}>
+            <Grid item md={6}>
               <Reviews comments={place.comments} placeId={place._id}/>
-            </Grid>
-            <Grid item md={4}>
-              upcoming event
             </Grid>
           </Grid>
         </DialogContent> : <Loader/>}

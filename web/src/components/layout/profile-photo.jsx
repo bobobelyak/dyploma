@@ -25,7 +25,7 @@ const ProfilePhoto = props => {
     <IconButton
       aria-haspopup="true"
       onClick={openLogin}
-      style={{color: 'sandybrown'}}
+      style={{color: '#4b9635'}}
     >
       <AccountCircle/>
     </IconButton>

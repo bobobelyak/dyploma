@@ -15,13 +15,13 @@
   margin-right: 10px;
   border-radius: 0;
   box-shadow: none;
-  border: 3px solid #ffc78c;
+  border: 3px solid #4b9635;
   margin-bottom: 10px;
   margin-top: 10px;
 }
 
 .category:hover{
-  border-color: #ffc78c;
+  border-color: #4b9635;
   cursor: pointer;
   transition: border-color 0.5s;
 }
@@ -41,12 +41,12 @@
   margin-right: 10px;
   border-radius: 0;
   box-shadow: none;
-  border: 3px solid #ffc78c;
+  border: 3px solid #4b9635;
   margin-bottom: 10px;
 }
 
 .sub-category:hover{
-  border-color: #ffc78c;
+  border-color: #4b9635;
   cursor: pointer;
   transition: border-color 0.5s;
 }
@@ -90,4 +90,3 @@
   margin-top: 5px;
   cursor: pointer;
 }
-

@@ -34,10 +34,10 @@ const styles = theme => ({
   },
   underline: {
     '&:after': {
-      borderBottomColor: 'sandybrown',
+      borderBottomColor: '#4b9635',
     },
     '&:hover:before': {
-      borderBottomColor: 'sandybrown',
+      borderBottomColor: '#4b9635',
     },
   },
   inputRoot: {
@@ -121,7 +121,7 @@ const Reviews = props => {
                   aria-label="Toggle password visibility"
                   onClick={submitComment}
                 >
-                  <SendIcon style={{color: 'sandybrown'}}/>
+                  <SendIcon style={{color: '#4b9635'}}/>
                 </IconButton>
               </InputAdornment>
             ),

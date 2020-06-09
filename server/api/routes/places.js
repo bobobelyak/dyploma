@@ -37,7 +37,7 @@ router.get('/search', PlaceController.search);
 router.get('/top', PlaceController.top);
 router.get('/suggestions', passportJWT, checkRole(['admin', 'moderator']), PlaceController.getSuggestions);
 router.get('/:id', PlaceController.getSingle);
-router.post('/', upload.single('image'), PlaceController.create);
+router.post('/', passportJWT, checkRole(['admin']), upload.single('image'), PlaceController.create);
 router.patch('/:id', passportJWT, checkRole(['admin', 'moderator']), PlaceController.update);
 router.delete('/:id', passportJWT, checkRole(['admin']), PlaceController.remove);
 

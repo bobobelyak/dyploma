@@ -41,10 +41,10 @@ const Swipeable = props => {
            Thank you,
           </Typography>
           <Typography variant="h2" style={{fontSize: '1.5em'}} gutterBottom>
-           your post should be approved by moderator <span style={{color: 'sandybrown'}}>:)</span>
+           your post should be approved by moderator <span style={{color: '#4b9635'}}>:)</span>
           </Typography>
           <img src={lionImg} style={{width: 200, height: 200, marginBottom: 20, marginTop: 20}}/>
-          <Button onClick={() => stepIndexChange(-1)} variant="contained" style={{color: 'white', backgroundColor: 'sandybrown', width: 100, height: 40, marginTop: 30}}>Confirm</Button>
+          <Button onClick={() => stepIndexChange(-1)} variant="contained" style={{color: 'white', backgroundColor: '#4b9635', width: 100, height: 40, marginTop: 30}}>Confirm</Button>
         </Grid>
       </SwipeableViews>
     </form>

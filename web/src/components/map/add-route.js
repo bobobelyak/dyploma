@@ -30,7 +30,7 @@ export const addRoute = async (map, place, coordinatesStart, coordinatesEnd, set
       },
       paint: {
         'line-width': 7,
-        'line-color': 'sandybrown',
+        'line-color': '#4b9635',
       },
     });
     if (routeList.length > 0) {
@@ -57,7 +57,7 @@ export const addExisting = (map, routes) => {
     },
     paint: {
       'line-width': 7,
-      'line-color': 'sandybrown',
+      'line-color': '#4b9635',
     },
 
   }));

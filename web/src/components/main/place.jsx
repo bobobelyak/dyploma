@@ -45,9 +45,7 @@ const Place = props => {
 
   return (
     <Card className={classes.card}>
-      <div style={{position: 'absolute', padding: 5}}>
-        <CategoryIcon category={place.iconImage}/>
-      </div>
+  
       <CardMedia
         onClick={isMoreInfo ? null : goToMoreInfo}
         className={classes.media}
@@ -59,14 +57,14 @@ const Place = props => {
           <Tooltip key={2} title="Like" placement="top">
             <IconButton onClick={allowLike ? (() => likePlace()) : null}>
               <Badge classes={{badge: classes.badge}} badgeContent={place.likes} color="primary">
-                <FavoriteIcon style={{color: place.liked && 'sandybrown'}}/>
+                <FavoriteIcon style={{color: place.liked && '#4b9635'}}/>
               </Badge>
             </IconButton>
           </Tooltip>,
           <Tooltip key={3} title="Dislike" placement="top">
             <IconButton onClick={allowDislike ? (() => dislikePlace()) : null}>
               <Badge classes={{badge: classes.badge}} badgeContent={place.dislikes} color="primary">
-                <ThumbDownIcon style={{color: place.disliked && 'sandybrown'}}/>
+                <ThumbDownIcon style={{color: place.disliked && '#4b9635'}}/>
               </Badge>
             </IconButton>
           </Tooltip>,

@@ -27,11 +27,11 @@ const styles = theme => ({
   avatar: {
     width: 70,
     height: 70,
-    border: '4px solid sandybrown',
+    border: '4px solid #4b9635',
   },
   title: {
     fontSize: '1.5em',
-    color: 'sandybrown',
+    color: '#4b9635',
   },
   subtitle: {
     fontSize: '1em',
@@ -44,7 +44,7 @@ const styles = theme => ({
   },
 });
 
-const tabLabels = [<LikeIcon key={1}/>, 'Events', 'Feeds'];
+const tabLabels = ['Аналізи'];
 
 const Profile = props => {
   const {user, classes, tab, setTab} = props;

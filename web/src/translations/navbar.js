@@ -11,11 +11,10 @@ export const navbar = {
   ua: {
     main: 'Головна',
     createPlace: 'Створити Місце',
-    feeds: 'Новини у Львові',
+    feeds: 'Новини',
     sights: 'Місця',
     events: 'Події',
     createRoute: 'Екскурсії',
     suggestions: 'Запропоновані',
   },
 };
-

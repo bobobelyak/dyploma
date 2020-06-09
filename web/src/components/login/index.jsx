@@ -8,7 +8,7 @@ import Typography from '@material-ui/core/Typography';
 import DialogContent from '@material-ui/core/DialogContent';
 import Grid from '@material-ui/core/Grid';
 import {withStyles} from '@material-ui/core/styles';
-import sideImg from '../../../public/images/side-img.jpg';
+import sideImg from './image1.jpeg';
 import instagramIcon from '../../../public/icons/instagram.png';
 import googleIcon from '../../../public/icons/google.png';
 import {styles} from './styles';
@@ -48,13 +48,10 @@ const Login = props => {
                 Welcome
                 </Typography>
                 <Typography className={classes.tBody} gutterBottom variant="body1">
-                Sign in to create own routes,
+                Sign in to see your personal information,
                 </Typography>
                 <Typography className={classes.tBody} gutterBottom variant="body1">
                   make reviews and add comments.
-                </Typography>
-                <Typography className={classes.tBody} gutterBottom variant="body1">
-                  Let`s make something good together!
                 </Typography>
                 <FacebookButton closeModal={onClose}/>
                 <Button variant="outlined" className={classes.button}>

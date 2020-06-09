@@ -24,7 +24,7 @@ const setLanguage = language => {
 };
 
 const NavBar = React.memo(props => {
-  const {isLoginModal, openLogin, user} = props;
+  const {isLoginModal, openLogin, user, white} = props;
 
   return (
     <React.Fragment>
@@ -39,14 +39,14 @@ const NavBar = React.memo(props => {
         width: '100%',
       }}
       >
-        <AppBar position="static" style={{backgroundColor: '#fcf6ed', boxShadow: 'none'}}>
+        <AppBar position="static" style={{backgroundColor: '#4b9635', boxShadow: 'none'}}>
           <Toolbar>
             <Navigation />
-            {user && (user.role === 'admin' || user.role === 'manager') && <Button component={Link} to="/suggestions">{Translations.navbar.suggestions}</Button>}
+            {user && (user.role === 'admin') && <Button style={{color: white ? 'white' : 'white'}} component={Link} to="/create-place" >{Translations.navbar.createPlace}</Button>}
             <div style={{flexGrow: 1}}/>
             <img onClick={() => setLanguage('en')} src={EN} width={20} height={20} style={{marginTop: 0}} className={selectedLanguage === 'en' ? 'selected-language' : 'selected-language-inactive selected-language'}/>
             <img onClick={() => setLanguage('ua')} src={UA} width={20} height={20} style={{marginTop: 0}} className={selectedLanguage === 'ua' ? 'selected-language' : 'selected-language-inactive selected-language'}/>
-            <IconButton style={{color: 'sandybrown'}}>
+            <IconButton style={{color: '#4b9635'}}>
               <NotificationsIcon/>
             </IconButton>
             <ProfilePhoto openLogin={openLogin}/>

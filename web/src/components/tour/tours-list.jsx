@@ -12,7 +12,7 @@ import {withStyles} from '@material-ui/core';
 import TourDetails from './tour-details-dialog';
 
 const ToursList = props => {
-  const {classes, tours, setTour, tourId, md = 4, paid, moreDetails, modal, openModal} = props;
+  const {classes, tours, setTour, tourId, md = 3, paid, moreDetails, modal, openModal} = props;
   return (
     <CardContent>
       {
@@ -23,7 +23,7 @@ const ToursList = props => {
             tour={modal.tour}
           />
       }
-      <Grid container spacing={8}>
+      <Grid container spacing={24}>
         {
           tours.map(tour => (
             <Grid key={tour._id} item md={md}>
@@ -37,7 +37,7 @@ const ToursList = props => {
                   borderRadius: 10,
                 }}
                 >
-                  <AlarmIcon style={{width: 20, height: 20, color: 'sandybrown'}}/>
+                  <AlarmIcon style={{width: 20, height: 20, color: '#4b9635'}}/>
                   <span style={{
                     fontSize: '0.9em',
                     marginLeft: 5,
@@ -57,7 +57,7 @@ const ToursList = props => {
                   borderRadius: 10,
                 }}
                 >
-                  <LocationIcon style={{width: 20, height: 20, color: 'sandybrown'}}/>
+                  <LocationIcon style={{width: 20, height: 20, color: '#4b9635'}}/>
                   <span style={{fontSize: '0.9em', marginLeft: 5, color: 'white'}}>{tour.routes.length}</span>
                 </div>
               </div>
@@ -82,13 +82,13 @@ const ToursList = props => {
                   </Typography>}
                   <Typography variant="h2" gutterBottom style={{fontSize: '0.8em'}}>
                         Distance:
-                    <strong style={{color: 'sandybrown'}}>
+                    <strong style={{color: '#4b9635'}}>
                       {Math.floor(tour.routes.reduce((a, b) => a + (b.distance) || 0, 0))} m
                     </strong>
                   </Typography>
                   {moreDetails &&
                   <Typography
-                    style={{color: 'sandybrown', marginTop: 10, cursor: 'pointer', display: 'inline-block'}}
+                    style={{color: '#4b9635', marginTop: 10, cursor: 'pointer', display: 'inline-block'}}
                     variant="button"
                     onClick={() => openModal(tour)}
                   >
@@ -100,7 +100,7 @@ const ToursList = props => {
                     <Typography
                       style={{
                         fontSize: '1.5em',
-                        color: 'sandybrown',
+                        color: '#4b9635',
                         marginTop: 10,
                         cursor: 'pointer',
                         display: 'inline-block',
@@ -129,7 +129,7 @@ const styles = theme => ({
     padding: 12,
   },
   selected: {
-    borderBottom: '3px solid sandybrown',
+    borderBottom: '3px solid #4b9635',
   },
   titleBar: {
     background:
